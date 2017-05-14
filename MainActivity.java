@@ -13,7 +13,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
-    public int answer = 0;
+    int answer = 0;
 
     final int min = 1;
     final int max = 100;
