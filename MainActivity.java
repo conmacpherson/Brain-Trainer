@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
      * Create random addition equations, calculates, and returns the results.
      * Example: a + b, where a = 1...100 and b == 1...100
      * Also sets questionTextView TextView to the equation.
-     */
+     **/
     public int generateQuestion(){
         Random rand = new Random();
         int x = rand.nextInt(max - min + 1);
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Randomizes the possible answers displayed on answerButtons 1...4.
-     */
+     **/
     public void randomizeAnswerOrder(){
 
         answer = generateQuestion();
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Grants the user a point if they selected the correct button.
      * Also sets the scoreTextView to the current users score out of the total rounds.
-     */
+     **/
     public void scorePoint(Button button){
 
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
@@ -118,16 +118,15 @@ public class MainActivity extends AppCompatActivity {
         // Add a breakpoint here and see if the button is being changed on each button click or if it uses the previous button click.
         if(button.getText() == Integer.toString(answer)){
             score++;
-            answer = 0;
+            // answer = 0;
             scoreTextView.setText(Integer.toString(score) + "/");
             Log.i("INFO_SCORE",Integer.toString(score));
         }
         else{
-            answer = 0;
+            // answer = 0;
             Log.i("INFO_SCORE",Integer.toString(score));
         }
     }
-
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -148,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
                             timerTextView.setText(String.valueOf(millisUntilFinished/1000));
                             Log.i("INFO_TIMER", "TICK " + millisUntilFinished/1000);
                         }
-
                         @Override
                         public void onFinish() {
                             timerTextView.setText("0");
@@ -193,19 +191,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         goButton = (Button) findViewById(R.id.goButton);
         answerButton1 = (Button) findViewById(R.id.answerButton1);
         answerButton2 = (Button) findViewById(R.id.answerButton2);
         answerButton3 = (Button) findViewById(R.id.answerButton3);
         answerButton4 = (Button) findViewById(R.id.answerButton4);
 
-
         goButton.setOnClickListener(listener);
         answerButton1.setOnClickListener(listener);
         answerButton2.setOnClickListener(listener);
         answerButton3.setOnClickListener(listener);
         answerButton4.setOnClickListener(listener);
-
     }
 }
