@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
     public void scorePoint(Button button){
 
         scoreTextView = (TextView) findViewById(R.id.scoreTextView);
-
+        
+        // Add a breakpoint here and see if the button is being changed on each button click or if it uses the previous button click.
         if(button.getText() == Integer.toString(answer)){
             score++;
             answer = 0;
